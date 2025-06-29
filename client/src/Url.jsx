@@ -15,7 +15,7 @@ const URLShortener = () => {
     setShortenedUrl('');
 
     try {
-      const response = await fetch('http://localhost:3000', {
+      const response = await fetch('http://localhost:3000/api/v1', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
