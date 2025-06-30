@@ -22,7 +22,7 @@ const URLShortener = () => {
         },
         body: JSON.stringify({
           url: url,
-          customWord: customWord
+          short: customWord
         })
       });
 
@@ -31,7 +31,7 @@ const URLShortener = () => {
       }
 
       const data = await response.json();
-      setShortenedUrl(data.shortenedUrl || data.url || data.shortUrl);
+      setShortenedUrl(data.short || data.url || data.shortUrl);
     } catch (err) {
       setError(err.message || 'Something went wrong');
     } finally {
@@ -107,6 +107,12 @@ const URLShortener = () => {
               >
                 Copy
               </button>
+              {/* <button 
+                onClick={() => window.open(shortenedUrl, '_blank')}
+                style={styles.copyButton}
+              >
+                Visit
+              </button> */}
             </div>
           </div>
         )}
